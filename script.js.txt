@@ -1,52 +1,28 @@
-body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #FFE0B2, #FFCCBC);
-  color: #2E2E2E;
-  text-align: center;
-  padding: 50px;
-  transition: background 0.5s;
+let score = 0;
+
+function addScore(points, btn) {
+  score += points;
+  // Dezactivează butoanele după ce dai click
+  const parent = btn.parentElement;
+  const buttons = parent.querySelectorAll('button');
+  buttons.forEach(b => b.disabled = true);
 }
 
-h1 {
-  color: #3A3A3A;
-  margin-bottom: 40px;
-  font-size: 2.2em;
-}
+function showResult() {
+  let text = "";
+  let bg = "";
 
-button {
-  background-color: #A8D5BA;
-  color: #2E2E2E;
-  border: none;
-  border-radius: 12px;
-  padding: 12px 25px;
-  margin: 8px;
-  cursor: pointer;
-  font-size: 1em;
-  transition: 0.3s;
-}
+  if (score <= 1) {
+    text = "🍏 Consumi puțin zahăr — foarte bine!";
+    bg = "#B2DFDB";
+  } else if (score <= 3) {
+    text = "⚖️ Consumi moderat zahăr — fii atent!";
+    bg = "#FFE082";
+  } else {
+    text = "🍬 Consumi prea mult zahăr — atenție!";
+    bg = "#FF8A65";
+  }
 
-button:hover {
-  background-color: #8FC6A5;
-  transform: scale(1.05);
-}
-
-.result-btn {
-  margin-top: 30px;
-  font-weight: bold;
-}
-
-#result {
-  margin-top: 25px;
-  font-weight: bold;
-  font-size: 1.3em;
-}
-
-.question {
-  margin-bottom: 20px;
-  animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(-10px); }
-  100% { opacity: 1; transform: translateY(0); }
+  document.getElementById("result").textContent = text;
+  document.body.style.background = bg;
 }
