@@ -3,28 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mini Quiz - Zahăr</title>
+  <title>Zahar - Quiz</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Cât zahăr consumi?</h1>
 
-  <div class="quiz">
-    <div class="question">
-      <p>1. Bei sucuri carbogazoase des?</p>
-      <button onclick="addScore(2, this)">Da</button>
-      <button onclick="addScore(0, this)">Nu</button>
+  <!-- 🔹 Bara de navigație -->
+  <nav class="navbar">
+    <div class="logo">🍬 Zahar</div>
+    <ul class="nav-links">
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">Despre</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- 🔹 Secțiunea principală (imagine + text) -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Tu cât zahăr mănânci fără să îți dai seama?</h1>
+      <button onclick="showQuiz()">Începe quizul</button>
     </div>
+  </section>
 
-    <div class="question">
-      <p>2. Mănânci dulciuri zilnic?</p>
-      <button onclick="addScore(2, this)">Da</button>
-      <button onclick="addScore(0, this)">Nu</button>
+  <!-- 🔹 Secțiunea quiz (ascunsă inițial) -->
+  <section id="quiz-section" class="hidden">
+    <h2>Cât zahăr consumi?</h2>
+
+    <div class="quiz">
+      <div class="question">
+        <p>1. Bei sucuri carbogazoase des?</p>
+        <button onclick="addScore(2, this)">Da</button>
+        <button onclick="addScore(0, this)">Nu</button>
+      </div>
+
+      <div class="question">
+        <p>2. Mănânci dulciuri zilnic?</p>
+        <button onclick="addScore(2, this)">Da</button>
+        <button onclick="addScore(0, this)">Nu</button>
+      </div>
+
+      <button class="result-btn" onclick="showResult()">Afișează rezultatul</button>
+      <p id="result"></p>
     </div>
-
-    <button class="result-btn" onclick="showResult()">Afișează rezultatul</button>
-    <p id="result"></p>
-  </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
